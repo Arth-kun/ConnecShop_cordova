@@ -1,0 +1,49 @@
+<!-- BEACON MENU -->
+<div data-smart-include="app/layout/partials/beacon.tpl.html" class="placeholder-right-panel"></div>
+
+<!-- END BEACON MENU -->
+
+<div id="bodyMainContent">
+     <!-- collapse menu button -->
+    <div id="menu-toggle-button" class="menu-icon-cross">
+        <span></span>
+    </div>
+    <!-- end collapse menu -->
+
+    <div class="calqueOpacite"></div>
+
+    <!-- HEADER -->
+    <div data-smart-include="app/layout/partials/header.tpl.html" class="placeholder-header"></div>
+    <!-- END HEADER -->
+
+
+    <!-- Menu : Navigation area -->
+    <div data-smart-include="app/layout/partials/menu.tpl.html" class="placeholder-left-panel"></div>
+
+    <!-- END MENU -->
+
+
+    <!-- MAIN PANEL -->
+    <div id="main" role="main">
+
+        <!-- RIBBON -->
+        <div id="ribbon">
+            <div id='homeSearchbar'>
+                <div class="inputSearchGroup">
+                    <div class="buttonContainer">
+                        <div class="buttonSearch"></div>
+                    </div>
+                    <input type="text" class="form-control inputSearch" placeholder="Rechercher un article...">
+                </div><!-- /input-group -->
+            </div>
+        </div>
+        <!-- END RIBBON -->
+
+
+    <div data-smart-router-animation-wrap="content content@app" data-wrap-for="#content">
+        <div data-ui-view="content" data-autoscroll="false"></div>
+    </div>
+
+    </div>
+    <!-- END MAIN PANEL -->
+</div>

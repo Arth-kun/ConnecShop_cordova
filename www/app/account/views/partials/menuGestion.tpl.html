@@ -1,0 +1,17 @@
+<div class="menuGestion">
+
+	<div class="welcome">
+		Bienvenue {{fiche.Prenom}} !
+	</div>
+
+	<div class="menusAccount" ng-repeat="menu in menusAccount" ng-click="goToMenu(menu.id, fiche.ID)"><span class="textMenus" ng-class="{last:$last}">{{menu.message}}</span></div>
+
+
+
+	<div class="deconnexion">
+
+		<button class="disconection" ng-click="disconect()">Déconnexion</button>
+		
+	</div>
+
+</div>

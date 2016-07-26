@@ -1,0 +1,29 @@
+<div id="menu-panel" class="row" ng-controller="menuController">	
+	<div id="menu-interface" class="col-xs-12">
+
+		<div class="menu-content">
+			<h1 class="menu-head">
+				<span class="firstHead">Menu</span>
+			</h1>
+
+			<ul class="menu-categories first">
+				<li class="menu-categorie" ng-repeat=" categorie in categories" ng-class="{notfirst:$index, last:$last}" ng-click="goToList(categorie.key)">
+					{{categorie.name}}<span class="glyphicon glyphicon-menu-right pull-right menu-fleche"></span>
+				</li>
+			</ul>
+		</div>
+
+		<div class="menu-content">
+			<h1 class="menu-head">
+				<span class="firstHead">A propos</span>
+			</h1>
+
+			<ul class="menu-categories last">
+				<li class="menu-categorie" ng-repeat=" categorie in aPropos" ng-class="{notfirst:$index, last:$last}">
+					{{categorie}}<span class="glyphicon glyphicon-menu-right pull-right menu-fleche"></span>
+				</li>
+			</ul>
+		</div>
+
+	</div>
+</div>

@@ -1,0 +1,177 @@
+<div id="beacon" ng-controller="beaconController" ng-class="{translateBeacon:showBeacon.doShow}" class="displayNone">
+
+	<!-- Button collapse beacon -->
+	<div class="flecheHome" ng-class="{'menu-open':showBeacon.doShow}">
+		<span class="glyphicon fleche-span" ng-class="{'glyphicon-menu-right':showBeacon.doShow, 'glyphicon-menu-left':!showBeacon.doShow}"></span>
+	</div>
+	<span class="paddingFleche" ng-click="showBeacon.show()">
+	</span>   
+	<!-- end Button collapse beacon -->
+
+	<div class="beaconPanel">
+
+		<div class="excluMag">
+
+			<div class="excluMagTitre">
+				<span class="traitExclu"></span>
+				<p class="exclusivite">Exclusivités</p>
+				<p class="magasin">MAGASIN</p>
+			</div>
+			<p class="nomRayon">Rayon {{nomRayon}}</p>
+
+			<div class="produitsPromoBeacon">
+				<div class="produitBeacon row product{{bProd.ID + bProd.randomID}}" ng-repeat="bProd in rayon" ng-class="{notLast:!$last}" ng-click="bProd.detailProduct.open(bProd.ID + bProd.randomID, bProd)">
+					<div class="promTagBeacon">
+						<span class="backgroundPromo"><span class="textPromo"><p class="exclu">Exclusivité</p><p class="mag">MAGASIN</p></span></span>
+					</div>
+					<span class="spanImg col-xs-3"><img ng-src="{{bProd.imgs[0]}}"></span>
+					<div class="produitContent col-xs-9">
+						<div class="produitName">{{bProd.ArtDesignation}}</div>
+						<div class="produitNote">
+							<span class="noteMoy" ng-class="{displayNone:!bProd.hasNote}">
+								<span class="notes-moyennes">
+									<span class="glyphicon glyphicon-star" ng-class="{'grey-star':$index>=bProd.Note, 'yellow-star':$index<bProd.Note}" ng-repeat="nbStars in [1,2,3,4,5]"></span>
+								</span>
+							</span>
+							<span class="produitAvis" ng-class="{displayNone:!bProd.avis}">{{bProd.ListeAvis.length}} avis</span>
+						</div>
+						<div class="produitPrix">
+							<span class="produitRemise">{{bProd.pourcentage}} %</span>
+							<span class="prixGroup">
+								<span class="produitPrixBarre">{{bProd.prixNonRemise}} €</span>
+								<span class="produitPrixTTC">{{bProd.PrixTTC}} €</span>
+							</span>
+						</div>
+						<div class="produitPanier">
+							<div class="panierButton" ng-click="addCart(bProd)" ng-class='{noStock:!bProd.Stock}'>AJOUTER AU PANIER</div>
+						</div>
+					</div>
+					<div class="col-xs-12 descAvis" ng-class="{displayNone:!bProd.avis&&!bProd.description}">
+						<div class="descriptionProduct" ng-class="{displayNone:!bProd.description}">
+							<div class="descriptionProductTitle" ng-click="bProd.descriptionShow.dispDesc()">
+								<span class="descriptionProductText">Description</span>
+								<span class="glyphicon fleche-description pull-right" ng-class="{'glyphicon-menu-down':!bProd.descriptionShow.showDesc, 'glyphicon-menu-up':bProd.descriptionShow.showDesc}"></span>
+							</div>
+							<p class="descriptionProductContent" ng-class="{displayNone:!bProd.descriptionShow.showDesc}">{{bProd.CatHTMLDesignation}}</p>
+						</div>
+
+						<div class="avisProduct" ng-class="{displayNone:!bProd.avis}">
+							<div class="avisProductTitle" ng-click="bProd.avisShow.dispDesc()">
+								<span class="avisProductText">Avis</span>
+								<span class="glyphicon fleche-avis pull-right" ng-class="{'glyphicon-menu-down':!bProd.avisShow.showDesc, 'glyphicon-menu-up':bProd.avisShow.showDesc}"></span>
+							</div>
+							<div class="avisProductContent" ng-class="{displayNone:!bProd.avisShow.showDesc}">
+								<ul class="listAvis">
+									<li class="listAvisProduct" ng-repeat="avisCt in bProd.ListeAvis" ng-class="{notLast:!$last, displayNone:!avisCt.Visible}">
+										<p class="listAvisProductHead">
+											<span class="pseudoAvis">{{avisCt.Pseudo}}</span>
+											<span class="starsavis pull-right">
+												<span class="noteMoy">
+													<span class="notes-moyennes">
+														<span class="glyphicon glyphicon-star" ng-class="{'grey-star':$index>=avisCt.Note, 'yellow-star':$index<avisCt.Note}" ng-repeat="nbStars in [1,2,3,4,5]"></span>
+													</span>
+												</span>
+											</span>
+										</p>
+										<p class="listAvisProductText">{{avisCt.Commentaire}}</p>
+										<p class="listAvisProductDate">{{avisCt.DateCreation}}</p>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+
+
+			<div class="dejaVus">
+				<span class="textDejaVus" ng-click="hideDejaVu.dispDesc()" ng-class="{dejaVusOpened:hideDejaVu.showDesc}">produits déjà vus</span>
+
+				<div class="produitsPromoBeacon" ng-class="{displayNone:!hideDejaVu.showDesc}">
+					<div class="produitBeacon row product{{bProd.ID + bProd.randomID}}" ng-repeat="bProd in dejaVu.slice().reverse()" ng-class="{notLast:!$last}" ng-click="bProd.detailProduct.open(bProd.ID + bProd.randomID, bProd)">
+						<div class="promTagBeacon">
+							<span class="backgroundPromo"><span class="textPromo"><p class="exclu">Exclusivité</p><p class="mag">MAGASIN</p></span></span>
+						</div>
+						<span class="spanImg col-xs-3"><img ng-src="{{bProd.imgs[0]}}"></span>
+						<div class="produitContent col-xs-9">
+							<div class="produitName">{{bProd.ArtDesignation}}</div>
+							<div class="produitNote">
+								<span ng-switch="bProd.Note" class="noteMoy" ng-class="{displayNone:!bProd.hasNote}">
+									<span class="notes-moyennes">
+										<span class="glyphicon glyphicon-star" ng-class="{'grey-star':$index>=bProd.Note, 'yellow-star':$index<bProd.Note}" ng-repeat="nbStars in [1,2,3,4,5]"></span>
+									</span>
+								</span>
+								<span class="produitAvis" ng-class="{displayNone:!bProd.avis}">{{bProd.ListeAvis.length}} avis</span>
+							</div>
+							<div class="produitPrix">
+								<span class="produitRemise">{{bProd.pourcentage}} %</span>
+								<span class="prixGroup">
+									<span class="produitPrixBarre">{{bProd.prixNonRemise}} €</span>
+									<span class="produitPrixTTC">{{bProd.PrixTTC}} €</span>
+								</span>
+							</div>
+							<div class="produitPanier">
+								<div class="panierButton" ng-click="addCart(bProd)" ng-class='{noStock:!bProd.Stock}'>AJOUTER AU PANIER</div>
+							</div>
+						</div>
+						<div class="col-xs-12 descAvis" ng-class="{displayNone:!bProd.avis&&!bProd.description}">
+							<div class="descriptionProduct" ng-class="{displayNone:!bProd.description}">
+								<div class="descriptionProductTitle" ng-click="bProd.descriptionShow.dispDesc()">
+									<span class="descriptionProductText">Description</span>
+									<span class="glyphicon fleche-description pull-right" ng-class="{'glyphicon-menu-down':!bProd.descriptionShow.showDesc, 'glyphicon-menu-up':bProd.descriptionShow.showDesc}"></span>
+								</div>
+								<p class="descriptionProductContent" ng-class="{displayNone:!bProd.descriptionShow.showDesc}">{{bProd.CatHTMLDesignation}}</p>
+							</div>
+
+							<div class="avisProduct" ng-class="{displayNone:!bProd.avis}">
+								<div class="avisProductTitle" ng-click="bProd.avisShow.dispDesc()">
+									<span class="avisProductText">Avis</span>
+									<span class="glyphicon fleche-avis pull-right" ng-class="{'glyphicon-menu-down':!bProd.avisShow.showDesc, 'glyphicon-menu-up':bProd.avisShow.showDesc}"></span>
+								</div>
+								<div class="avisProductContent" ng-class="{displayNone:!bProd.avisShow.showDesc}">
+									<ul class="listAvis">
+										<li class="listAvisProduct" ng-repeat="avisCt in bProd.ListeAvis" ng-class="{notLast:!$last, displayNone:!avisCt.Visible}">
+											<p class="listAvisProductHead">
+												<span class="pseudoAvis">{{avisCt.Pseudo}}</span>
+												<span class="starsavis pull-right">
+													<span class="noteMoy">
+														<span class="notes-moyennes">
+															<span class="glyphicon glyphicon-star" ng-class="{'grey-star':$index>=avisCt.Note, 'yellow-star':$index<avisCt.Note}" ng-repeat="nbStars in [1,2,3,4,5]"></span>
+														</span>
+													</span>
+												</span>
+											</p>
+											<p class="listAvisProductText">{{avisCt.Commentaire}}</p>
+											<p class="listAvisProductDate">{{avisCt.DateCreation}}</p>
+										</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+
+		</div>
+
+
+		<div class="conseils">
+			<div class="conseilsTitreContainer">
+				<div class="conseilsTitre">CONSEILS</div>
+			</div>
+			<div class="conseilsContent row" ng-repeat="conseil in conseils">
+				<div class="imgContainer col-xs-3">
+					<img ng-src="{{conseil.img}}">
+				</div>
+				<div class="conseilContainer col-xs-9">
+					<p class="titreConseil">{{conseil.titre}}</p>
+					<p class="apercuConseil">{{conseil.apercu}}</p>
+				</div>
+			</div>
+		</div>
+
+	</div>
+
+</div>

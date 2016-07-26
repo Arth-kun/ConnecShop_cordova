@@ -1,0 +1,23 @@
+<div class="logged">
+
+	<div class="changes">
+		<div class="headerChanges headerOverride">
+			<span class="glyphicon glyphicon-menu-left returnButton" ng-click="goBack(menu)"></span>
+			<span class="accountHeader"><span class="accountTitre">Mon Compte (gestion)</span></span>
+		</div>
+	</div>
+
+	<div class="gestion" ng-switch="menu">
+
+		<div data-smart-include="app/account/views/partials/menuGestion.tpl.html" class="placeholder-account-content" ng-switch-when="0"></div>
+
+		<div data-smart-include="app/account/views/partials/infoPerso.tpl.html" class="placeholder-account-content" ng-switch-when="1"></div>
+
+		<div data-smart-include="app/account/views/partials/changePassword.tpl.html" class="placeholder-account-content" ng-switch-when="2"></div>
+
+		<div data-smart-include="app/account/views/partials/infoFidelite.tpl.html" class="placeholder-account-content" ng-switch-when="3"></div>
+
+	</div>
+
+</div>
+

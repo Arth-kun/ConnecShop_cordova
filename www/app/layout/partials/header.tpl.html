@@ -1,0 +1,37 @@
+<header id="header">
+
+<!-- pulled left: menu + logo -->
+<div class="pull-left">
+
+    <span id="logo"> <img class="logoImage" src="styles/img/octave/logo.png" alt="ConnecShop"> </span>
+</div>
+<!-- end pulled left: menu + logo -->
+
+<!-- pulled right: button magasin, account, shopping cart -->
+<div id="buttonsPullRight" class="pull-right">
+    
+    <div class="buttonMagContainer buttonContainer" onclick="//sessionStorage.clear()">
+        <div class="buttonMag buttonRight"></div>
+    </div>
+
+    <span class="controllerAccountContainer" ng-controller="AccountController">
+    <div class="buttonAccContainer buttonContainer" ng-click="goToAccount()">
+        <div class="buttonAcc buttonRight"></div>
+    </div>
+    </span>
+
+    <span class="controllerContainer" ng-controller="PanierController">
+    <div class="buttonCartContainer buttonContainer" ng-click="goToPanier()">
+        <div class="buttonCart buttonRight"></div>
+        <span class="nbArticlesPanier" ng-class="{displayNone:!nbArticles, twoDigits:nbArticles>9}">{{nbArticles}}</span>
+    </div>
+
+    </span>
+
+</div>
+<!-- end pulled right: buttons -->
+
+
+
+
+</header>

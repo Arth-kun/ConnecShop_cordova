@@ -1,0 +1,2018 @@
+/*
+ * It is advised not to edit the smartadmin_production.css
+ * as this will override any changes you make in the 
+ * later versions of this theme. 
+ * 
+ * We advise that you use use this CSS to override 
+ * SmartAdmin styles. 
+ * 
+ * Rename the stylesheet to whatever your liking so it will stay
+ * unique to you with each update of SmartAdmin.
+ */
+
+/*
+ * INDEX
+ * 
+ * - HTML
+ * - BODY
+ * - CUSTOM STYLES
+ */
+
+.md-scroll-mask { 
+	position: initial;
+}
+
+
+ /* header.tpl.html */
+ 	/* Bouton menu */
+#menu-toggle-button {
+	position: fixed;
+	top: 0;
+
+	z-index: 1002;
+	width: 54px;
+	height: 54px;
+}
+
+#menu-toggle-button span {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	display: block;
+
+	width: 22px;
+	height: 2px;
+
+	background-color: #313C3E;
+	transform: translateX(-50%) translateY(-50%);
+}
+
+#menu-toggle-button span::before,
+#menu-toggle-button span::after {
+	content: '';
+
+	position: absolute;
+	top: 0;
+	left: 0;
+
+	display: block;
+	width: 22px;
+	height: 2px;
+
+	background-color: #313C3E;
+
+	transform: translateY(-6px);
+	transition: transform 0.5s;
+}
+
+#menu-toggle-button span::after {
+	transform: translateY(6px);
+}
+
+#menu-toggle-button.menu-icon-cross {
+	transition: transform 0.5s;
+}
+
+#menu-toggle-button.menu-icon-cross span {
+	transition: background 0.3s, transform 0.5s;
+}
+
+#menu-toggle-button.menu-icon-cross span::before,
+#menu-toggle-button.menu-icon-cross span::after {
+	transform-origin: 50% 50%;
+}
+
+#menu-toggle-button.menu-icon-cross.is-opened {
+	transform: rotate(180deg);
+}
+
+#menu-toggle-button.menu-icon-cross.is-opened span,
+#menu-toggle-button.menu-icon-cross.is-opened span::before,
+#menu-toggle-button.menu-icon-cross.is-opened span::after {
+	transition: background-color 0.2s;
+	background-color: #FFF;
+}
+
+#menu-toggle-button.menu-icon-cross.is-closed span,
+#menu-toggle-button.menu-icon-cross.is-closed span::before,
+#menu-toggle-button.menu-icon-cross.is-closed span::after {
+	transition: background-color 1.5s;
+	background-color: #313C3E;
+}
+
+#menu-toggle-button.menu-icon-cross.is-opened span {
+	background: transparent;
+}
+
+#menu-toggle-button.menu-icon-cross.is-opened span::before {
+	transform: translateY(0) rotate(45deg);
+}
+
+#menu-toggle-button.menu-icon-cross.is-opened span::after {
+	transform: translateY(0) rotate(-45deg);
+}
+
+	/* logo Octave */
+.pull-left #logo {
+	position: absolute;
+	top: 0;
+	left: 0;
+	transform: translateX(37px) translateY(-13%);
+}
+
+.pull-left #logo .logoImage {
+	width: 95%;
+}
+
+	/* Boutons pull-right */
+#buttonsPullRight .buttonContainer {
+	position: fixed;
+	top: 0px;
+
+	height: 50px;
+	width: 40px;
+	padding-left: 7px;
+	padding-top: 9px;
+}
+
+#buttonsPullRight .buttonRight {
+	height: 30px;
+	width: 30px;
+
+	background-image: url(../img/octave/icons.png);
+	background-repeat: no-repeat;
+	background-size: 80%;
+}
+
+#buttonsPullRight .buttonCartContainer {
+	right: 0px;
+}
+
+#buttonsPullRight .buttonCart {
+	background-position: 0 82%;
+}
+
+#buttonsPullRight .buttonAccContainer {
+	right: 40px;
+}
+
+#buttonsPullRight .buttonAcc {
+	background-position: 0 53%;
+}
+
+#buttonsPullRight .buttonMagContainer {
+	right: 80px;
+}
+
+#buttonsPullRight .buttonMag {
+	background-position: 0 25%;
+}
+
+#buttonsPullRight .nbArticlesPanier {
+	position: fixed;
+	top: 10px;
+	right: 10px;
+
+	font-size: 0.7em;
+	font-family: Open Sans;
+	color: #FFF;
+	text-shadow: -1px 1px 0px rgba(45, 45, 45, 0.5);
+
+	background-color: #FD7454;
+	border: 1px solid #FD7454;
+	border-radius: 20px;
+
+	padding: 0% 0.8%;
+}
+
+#buttonsPullRight .nbArticlesPanier.twoDigits {
+	padding: 0% 0.4%;
+}
+
+/* layout.tpl.html */
+	/* Bar de recherche */
+#ribbon {
+	background-color: #313C3E;
+	height: 55px;
+
+	padding-top: 10px;
+	padding-right: 10px;
+	padding-left: 10px;
+
+	border-bottom: none;
+
+	z-index: 905!important;
+}
+
+#ribbon #homeSearchbar .buttonContainer {
+	background-color: #FFF;
+	width: 10%;
+	height: 32px;
+
+	padding-left: 2.5%;
+	padding-top: 2%;
+
+	border: 1px solid #313C3E;
+	border-right: none;
+	border-bottom-left-radius: 3px;
+	border-top-left-radius: 3px;
+}
+
+#ribbon #homeSearchbar .inputSearch {
+	width: 90%;
+
+	margin-left: 10%;
+	margin-top: -32px;
+	padding-left: 0px;
+
+	border: 1px solid #313C3E;
+	border-left: none;
+	border-bottom-right-radius: 3px!important;
+	border-top-right-radius: 3px!important;
+}
+
+#ribbon #homeSearchbar .buttonSearch {
+	width: 30px;
+	height: 28px;
+
+	background-image: url(../img/octave/icons.png);	
+	background-size: 90%;
+	background-repeat: no-repeat;
+}
+
+#ribbon #homeSearchbar .inputSearch::-webkit-input-placeholder {
+	color: #313C3E;
+	font-family: open sans;
+	font-size: 14px;
+}
+
+
+	/* Général */
+html {	
+	background-color: #F8F8F8;
+	background-image: none;
+}
+
+body {
+	background-color: #F8F8F8;
+}
+
+#main {
+	padding-bottom: 0px;
+	background-color: #F8F8F8;
+	height: 100%;
+}
+
+#content {
+	padding-left: 0px;
+	padding-right: 0px;
+	padding-bottom: 0px;
+}
+
+.noscroll {
+	overflow-y: hidden;
+}
+
+.displayNone {
+	display: none!important;
+}
+
+.noStock {
+	opacity: 0.4;
+}
+
+/* menu.tpl.html */
+#menu-panel {
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	right: 0;
+	overflow-y: auto;
+
+	margin: 0;
+
+	background-color: rgba(255,255,255, 0.96);
+
+	font-family: open sans;
+
+	width: 100%;
+	z-index: 1001;
+
+	transform: translateX(-100%);
+	transition: transform 0.5s;
+}
+
+#menu-panel #menu-interface {
+	padding-left: 0;
+	padding-right: 0;
+}
+
+#menu-panel.opened {
+	transform: translateX(0%);
+}
+
+#menu-panel #menu-interface .menu-content .menu-head {
+	text-align: center;
+	font-size: 1.1em;
+	font-weight: normal;
+
+	width: 104%;
+	height: 50px;
+
+	margin-top: 0px;
+	margin-bottom: 0px;
+
+	background-color: #313C3E;
+	color: #FFF;
+	padding-top: 5%;
+}
+
+.menu-categories {
+	padding-left: 0px;
+	width: 104%;
+	margin-bottom: 0px;
+}
+
+.menu-categories .menu-categorie {
+	list-style: none;
+
+	font-size: 13px;
+	font-weight: 600;
+	color: #313C3E;
+
+	padding: 10px 25px 10px 15px;
+}
+
+.menu-categories .menu-categorie .menu-fleche {
+	color: #a3a3a3;
+}
+
+/* angular ng-class */
+.menu-categories.main {
+	text-transform: uppercase;
+}
+
+.menu-categories .menu-categorie.notfirst {
+	border-top: 1px solid #efefef;
+}
+
+.menu-categories.last .menu-categorie.last {
+	border-bottom: 1px solid #efefef;
+}
+
+.menu-head .firstHead {
+	display: none;
+}
+
+
+ /* home.html */
+	/* carousel */
+#homeCarousel {
+	margin-top: 2px;
+}
+
+#homeCarousel img {
+	width: 100%;
+}
+
+	/* images mises en avant */
+#miseEnAvant .miseAvantHome .imageMiseAvant {
+	width: 100%;
+}
+
+	/* top ventes titre */
+#meilleuresVentesHome #paddingTitreMeilleuresVentes {
+	padding-top: 4%;
+	padding-bottom: 4%;
+	padding-left: 33%;
+	padding-right: 33%;
+}
+
+#meilleuresVentesHome #paddingTitreMeilleuresVentes #titreMeilleuresVentes {
+	text-align: center;
+
+	padding-top: 4%;
+	padding-bottom: 4%;
+
+	border: 2px solid #313C3E;
+	border-left: none;
+	border-right: none;
+}
+
+#meilleuresVentesHome #paddingTitreMeilleuresVentes #titreMeilleuresVentes #textTitreMeilleuresVentes {
+	color: #313C3E;
+	font-family: open sans;
+	font-size: 115%;
+	text-transform: uppercase;
+	font-weight: 600;
+
+	margin-bottom: 0px;
+}
+
+	/* images top ventes */
+#meilleuresVentesHome .articleMeilleureVente .imageArticle {
+ 	width: 80%;
+ 	padding-bottom: 4%;
+}
+
+	/* Top ventes articles */
+#meilleuresVentesHome .articleMeilleureVente {
+	margin-bottom: 5.185%;
+}
+
+#meilleuresVentesHome .articleMeilleureVente .inner {
+	text-align: center;
+	font-family: open sans;
+	color: #313C3E;
+
+	background-color: white;
+
+	border: 1px solid #ececec;
+	border-radius: 4px;
+	padding-top: 10px;
+	box-shadow: 0px 1.5px 1px #d3d3d3;
+}
+
+#meilleuresVentesHome .pair .inner{
+	margin-left: 10%;
+}
+
+#meilleuresVentesHome .impair .inner{
+	margin-right: 10%;
+}
+
+#meilleuresVentesHome .articleMeilleureVente .artDesignationVente {
+	font-size: 15px;
+	font-weight: 600;
+
+	margin-bottom: 0px;
+	padding-top: 3%;
+
+	border-top: 1px solid #ececec;
+}
+
+#meilleuresVentesHome .articleMeilleureVente .prixTTCVente {
+	margin-bottom: 3%;
+}
+
+#meilleuresVentesHome .articleMeilleureVente .prixTTCVente span {
+	color: #FD7454;
+	font-size: 110%;
+	font-weight: 600;
+}
+
+
+
+/* products-list.html */
+	/* header */
+.changes .headerChanges {
+	position: fixed;
+	top: 15px; left: 15px;
+	z-index: 906;
+
+	color: #313C3E;
+	font-family: open sans;
+	font-weight: 600;
+}
+
+.changes .headerChanges .returnButton {
+	margin-right: 5px;
+	margin-top: 3px;
+
+	font-weight: bold;
+}
+
+.changes #ribbonChanges {
+	position: fixed;
+	top: 67px;
+	z-index: 906;
+
+	padding-left: 20px;
+}
+
+.changes #ribbonChanges .nbArticle {
+	color: #FFF;
+}
+
+.changes #ribbonChanges .trieArticle {
+	position: fixed;
+	right: 15px;
+	top: 60px;
+	width: 150px;
+	overflow: hidden;
+   	background: url(../img/octave/fleche-combo.png) no-repeat right #FFF;
+   	background-size: 20%;
+   	border: 1px solid #313C3E;
+   	border-radius: 3px;
+}
+
+.changes #ribbonChanges .trieArticle .comboTrieArticle {
+	background: transparent;
+	width: 150px;
+	padding: 7.8px;
+	padding-left: 10px;
+	border: none;
+	color: #778075;
+	font-family: open sans;
+	font-size: 12px;
+	-webkit-appearance: none
+}
+
+
+	/* articles */
+#productsList {
+	padding-top: 70px;
+}
+
+	/* images articles */
+#productsList .articleProductsList .imageArticle {
+ 	width: 80%;
+ 	padding-bottom: 4%;
+}
+
+	/* Liste articles */
+#productsList .articleProductsList {
+	margin-bottom: 5.185%;
+	position: relative;
+}
+
+#productsList .pair {
+	clear: left;
+}
+
+#productsList .articleProductsList .inner {
+	text-align: center;
+	font-family: open sans;
+	color: #313C3E;
+
+	height: 100%;
+
+	background-color: white;
+
+	border: 1px solid #ececec;
+	border-radius: 4px;
+	padding-top: 10px;
+	box-shadow: 0px 1.5px 1px #d3d3d3;
+}
+
+#productsList .pair .inner {
+	margin-left: 10%;
+}
+
+#productsList .impair .inner {
+	margin-right: 10%;
+}
+
+#productsList .articleProductsList .inner .promoTag {
+	position: absolute;
+	top: 0;
+	z-index: 904;
+
+	margin-left: -8.6%;
+
+	width: 50%;
+	height: 50%;
+
+	border: 1px solid transparent;
+	border-right: none;
+	border-bottom: none;
+	border-top-left-radius: 4px;
+	overflow: hidden;
+}
+
+#productsList .articleProductsList .inner .promoTag .backgroundPromo {
+	position: absolute;
+	top: 0;
+
+	width: 200px;
+	height: 200px;
+
+	background: url(../img/octave/carre-promo.png);
+	transform: rotate(-45deg) translateY(-235px) translateX(-55px);
+}
+
+#productsList .articleProductsList .inner .promoTag .textPromo {
+    position: absolute;
+    bottom: 0;
+
+    color: #FFF;
+	font-family: Open Sans;
+	font-size: 80%;
+}
+
+#productsList .articleProductsList .artDesignationVente {
+	font-size: 15px;
+	font-weight: 600;
+
+	margin-bottom: 0px;
+	padding-top: 3%;
+
+	border-top: 1px solid #ececec;
+}
+
+#productsList .articleProductsList .prixTTCVente {
+	margin-bottom: 3%;
+}
+
+#productsList .articleProductsList .prixTTCVente .prixTTC {
+	color: #FD7454;
+	font-size: 90%;
+	font-weight: 600;
+}
+
+#productsList .articleProductsList .prixTTCVente .prixTTC.prixReduit {
+	font-size: 110%;
+}
+
+#productsList .articleProductsList .prixTTCVente .pourcentage {
+	font-size: 85%;
+	color: #FFF;
+	background-color: #FD7454;
+
+	border: 1px solid #FD7454;
+	border-radius: 15px;
+
+	margin-right: 2%;
+	padding: 0% 3%;
+}
+
+#productsList .articleProductsList .prixTTCVente .prixNonRemise {
+	font-size: 85%;
+	text-decoration: line-through;
+
+	margin-right: 2%;
+}
+
+#productsList .articleProductsList .starsProductsList {
+	margin-bottom: 0px;
+	font-size: 85%;
+}
+
+.yellow-star {
+	color: #FFB03B;
+}
+
+.grey-star {
+	color: #C6C6C6;
+}
+
+
+/* products-detail.html */
+	/* header */
+
+#header.productsDetailHeader {
+	box-shadow: 0px 2px 5px 0px #9b9b9b!important;
+}
+
+	/* ProductsDetail dans son ensemble */
+#productsDetail .inner {
+	padding: 15px;
+
+	font-family: Open Sans;
+	color: #313C3E;
+}
+
+#productsDetail .inner .artDesignation {
+	font-size: 1.700em;
+	margin-bottom: 0px;
+}
+
+#productsDetail .inner .noteAvis .noteMoy {
+	margin-right: 2px;
+}
+
+#productsDetail .inner .noteAvis .nbAvis {
+	font-size: 0.9em;
+}
+
+
+	/* productBlock */
+#productsDetail .inner .productBlock {
+	position: relative;
+
+	margin-top: 4%;
+
+	border: 1px solid #ececec;
+	border-top-color: #f4f4f4;
+	border-radius: 6px;
+
+	background-color: #FFF;
+}
+
+#productsDetail .inner .productBlock .promoTag{
+	position: absolute;
+	top: 0;
+	z-index: 904;
+
+	width: 50%;
+	height: 50%;
+
+	border: 0px solid transparent;
+	border-right: none;
+	border-bottom: none;
+	border-top-left-radius: 6px;
+	overflow: hidden;
+}
+
+#productsDetail .inner .productBlock .promoTag .backgroundPromo {
+	position: absolute;
+	top: 0;
+
+	width: 200px;
+	height: 200px;
+
+	background: url(../img/octave/carre-promo.png);
+	transform: rotate(-45deg) translateY(-170px) translateX(0px);
+}
+
+#productsDetail .inner .productBlock .promoTag .textPromo {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+
+    color: #FFF;
+	font-size: 110%;
+	text-align: center;
+}
+
+	/* carousel override */
+#productsDetail .inner .productBlock .carouselImagesProduct .carousel-indicators li {
+	border-color: #313C3E;
+	width: 6px;
+	height: 6px;
+	margin-right: 2px;
+}
+
+#productsDetail .inner .productBlock .carouselImagesProduct .carousel-indicators .active {
+	background-color: #313C3E;
+	width: 6px;
+	height: 6px;
+	margin-top: 1px;
+	margin-left: 1px;
+	margin-bottom: 1px;
+}
+
+#productsDetail .inner .productBlock .carouselImagesProduct .carousel-inner .item {
+	padding: 4%;
+	padding-bottom: 12%;
+
+	border-bottom: 1px solid #ececec;
+	width: 100%;
+	height: 100%;
+
+	min-height: 355.250px;
+}
+
+#productsDetail .inner .productBlock .carouselImagesProduct .carousel-inner .item.active img {
+	width: 100%;
+	text-align: center;
+}
+
+	/* prixProduct */
+#productsDetail .inner .productBlock .prixProduct {
+	position: relative;
+	padding: 15px;
+	margin-bottom: 0px;
+
+	border-bottom: 1px solid #ececec;
+	min-height: 50px;
+}
+
+#productsDetail .inner .productBlock .prixProduct .pourcentage {
+	color: #FFF;
+	background-color: #FD7454;
+
+	border: 1px solid #FD7454;
+	border-radius: 15px;
+
+	padding: 0px 5px;
+}
+
+#productsDetail .inner .productBlock .prixProduct .prixNonRemise {
+	position: absolute;
+	right: 32%;
+
+	text-decoration: line-through;
+}
+
+#productsDetail .inner .productBlock .prixProduct .prixTTC {
+	font-size: 1.600em;
+	font-weight: 600;
+	color: #FD7454;
+
+	position: absolute;
+	right: 5%;
+
+	margin-top: -5px;
+}
+
+#productsDetail .inner .productBlock .addCartProduct {
+	background-color: #313C3E;
+
+	border: 1px solid #313C3E;
+	border-bottom-right-radius: 6px;
+	border-bottom-left-radius: 6px;
+
+	padding: 4% 22%;
+}
+
+#productsDetail .inner .productBlock .addCartProduct .addCartButton {
+	background-color: #FD7454;
+	border: 1px solid #FD7454;
+	border-radius: 2px;
+
+	color: #F8F8F8;
+	text-align: center;
+	font-size: 1.000em;
+	text-shadow: 1px 1px 0px rgba(45, 45, 45, 0.25);
+
+	padding: 4% 0%;
+}
+
+
+	/* Description + Avis */
+#productsDetail .inner .descriptionProduct .descriptionProductTitle,
+#productsDetail .inner .avisProduct .avisProductTitle {
+	position: relative;
+	z-index: 907;
+
+	padding: 5% 6% 4% 5%;
+
+	margin: 3% 0% 0%;
+
+	border: 1px solid #ececec;
+	border-top-color: #f1f1f1;
+	border-radius: 6px;
+
+	background-color: #FFF;
+	box-shadow: 0px 1px 0px 0px rgba(155, 155, 155, 0.5);
+
+	font-size: 1.150em;
+}
+
+#productsDetail .inner .descriptionProduct .descriptionProductTitle .descriptionProductText,
+#productsDetail .inner .avisProduct .avisProductTitle .avisProductText {
+	font-family: Open Sans;
+	color: #313C3E;
+}
+
+#productsDetail .inner .descriptionProduct .descriptionProductTitle .fleche-description,
+#productsDetail .inner .avisProduct .avisProductTitle .fleche-avis {
+	color: #a0a0a0;
+}
+
+#productsDetail .inner .descriptionProduct .descriptionProductContent,
+#productsDetail .inner .avisProduct .avisProductContent {
+	position: relative;
+	z-index: 906;
+
+	padding: 5%;
+
+	border: 1px solid #ececec;
+	border-top: none;
+	border-bottom-right-radius: 6px; 
+	border-bottom-left-radius: 6px;
+	
+	background-color: #FFF;
+	box-shadow: 0px 1px 0px 0px rgba(155, 155, 155, 0.5);
+
+	font-family: Open Sans;
+	color: #313C3E;
+}
+
+#productsDetail .inner .avisProduct .avisProductContent {
+	padding: 0%;
+}
+
+	/* avis */
+#productsDetail .inner .avisProduct .avisProductContent .listAvis {
+	padding-left: 0px;
+}
+
+#productsDetail .inner .avisProduct .avisProductContent .listAvis .listAvisProduct {
+	list-style: none;
+	
+	padding: 4% 5% 0%;
+}
+
+#productsDetail .inner .avisProduct .avisProductContent .listAvis .listAvisProduct.notLast {
+	border-bottom: 1px solid #ececec;
+}
+
+#productsDetail .inner .avisProduct .avisProductContent .listAvis .listAvisProduct .listAvisProductHead .pseudoAvis {
+	font-weight: 600;
+}
+
+#productsDetail .inner .avisProduct .avisProductContent .listAvis .listAvisProduct .listAvisProductHead .starsavis {
+	font-size: 1.100em;
+}
+
+#productsDetail .inner .avisProduct .avisProductContent .listAvis .listAvisProduct .listAvisProductDate {
+	font-size: 0.85em;
+	font-weight: 300;
+}
+
+
+/* beacon.tpl.html */
+
+#beacon {
+	position: fixed;
+	top: 0; bottom: 0;
+	width: 100%;
+	z-index: 1000;
+
+	padding-right: 12%;
+
+	transform: translateX(100.1%);
+	transition: transform 0.3s;
+}
+
+#beacon .paddingFleche {
+	position: absolute;
+    top: 49%;
+    right: 100%;
+    height: 62px;
+    z-index: 1000;
+    padding: 20px;
+}
+
+#beacon .flecheHome {
+	position: absolute;
+	top:50%; right: 100%;
+
+	height: 50px;
+
+	z-index: 1000;
+
+	padding: 15px 8px;
+
+	background-color: #FD7454;
+
+	border: 1px solid #FD7454;
+	border-right: 0px;
+	border-bottom-left-radius: 27px;
+	border-top-left-radius: 27px;
+
+	box-shadow: -1px 0px 2px 0px rgba(201, 201, 201, 0.25);
+}
+
+#beacon .flecheHome.menu-open {
+	box-shadow: -1px 0px 2px 0px rgba(201, 201, 201, 0.1);
+}
+
+#beacon .flecheHome .fleche-span {
+	color: #FFF;
+	font-size: 0.9em;
+	text-shadow: 1px 1px 0px rgba(45, 45, 45, 0.75);
+}
+
+#beacon .beaconPanel {
+	width: 100%;
+	height: 100%;
+
+	background-color: #FFF;
+
+	overflow-y: auto;
+
+	font-family: Open Sans;  
+}
+
+#beacon .beaconPanel .excluMag {
+	background-color: #313C3E;
+}
+
+	/* TRANSFORMATIONS */
+#bodyMainContent {
+	transition: transform 0.3s;
+}
+
+.translateBody {
+	transition: transform 0.3s;
+	transform: translateX(-87.8%);
+}
+
+.translateButtunToggleMenu {
+	top:-48px !important;
+}
+
+.translateRibbonHeader {
+	transform: translateY(-48px);
+}
+
+.translateBeacon {
+	transform: translateX(12.1%)!important;
+}
+
+
+		/* Calque noir */
+.calqueOpacite {
+	position: fixed;
+	top: 0; right: 0; left: 0; bottom: 0;
+
+	width: 100%;
+
+	background-color : #313C3E;
+
+	transition: opacity 0.3s;
+	opacity: 0;
+}
+
+.calqueOpacite.calqueOpaciteBeacon {
+	z-index: 1001;
+	top: -49px;
+
+	opacity: 0.8;
+}
+
+
+	/* Exclu magasin */
+#beacon .beaconPanel .excluMag {
+	padding-top: 20px;
+}
+
+#beacon .beaconPanel .excluMag .excluMagTitre {
+	position: relative;
+}
+
+#beacon .beaconPanel .excluMag .excluMagTitre .traitExclu {
+	position: absolute;
+	top: 32%;
+	left: 0%;
+
+	width: 100%;
+	height: 2px;
+
+	background-color: #5A6465;
+}
+
+#beacon .beaconPanel .excluMag .excluMagTitre {
+	text-align: center;
+}
+
+#beacon .beaconPanel .excluMag .excluMagTitre .exclusivite {
+	position: relative;
+
+	color: #FD7454;
+	font-size: 2em;
+	font-weight: 300;
+
+	margin-bottom: -7px;
+	margin-left: 25%;
+	margin-right: 25%;
+	background-color: #313C3E;
+}
+
+#beacon .beaconPanel .excluMag .excluMagTitre .magasin {
+	position: relative;
+
+	color: #FFF;
+	font-size: 1.1em;
+	font-weight: 600;
+}
+
+#beacon .beaconPanel .excluMag .nomRayon {
+	color: #FFF;
+	text-align: center;
+	font-size: 0.9em;
+	text-shadow: 1px 1px 0px rgba(45, 45, 45, 1);
+
+	padding: 6px 0px;
+
+	background-color: #FD7454;
+}
+
+#beacon .beaconPanel .excluMag .produitsPromoBeacon {
+	padding: 8px 5% 20px;
+}
+
+/* override déjà vus */
+#beacon .beaconPanel .excluMag .dejaVus .produitsPromoBeacon {
+	padding: 25px 5% 0px;
+}
+
+#beacon .beaconPanel .excluMag .produitsPromoBeacon .produitBeacon {
+	position: relative;
+
+	background-color: #FFF;
+
+	border: 1px solid #FFF;
+	border-radius: 4px;	
+	border-right: none;
+
+	margin: 0px;
+
+	text-align: left;
+}
+
+#beacon .beaconPanel .excluMag .produitsPromoBeacon .produitBeacon.notLast {
+	margin-bottom: 12px;
+}
+
+#beacon .beaconPanel .excluMag .produitsPromoBeacon .produitBeacon .spanImg {
+	padding: 0px;
+	
+	padding: 2.5% 1.75%;
+
+	border-right: 1px solid #ececec;
+
+	transition: width 0.2s;
+
+	text-align: center;
+}
+
+#beacon .beaconPanel .excluMag .produitsPromoBeacon .produitBeacon .spanImg img {
+	width: 100%;
+}
+
+#beacon .beaconPanel .excluMag .produitsPromoBeacon .produitBeacon .produitContent {
+	padding: 2% 4%;
+	
+	transition: width 0.2s;
+}
+
+#beacon .beaconPanel .excluMag .produitsPromoBeacon .produitBeacon .produitContent .produitName {
+	font-size: 1em;
+	transition: font-size 0.2s;
+}
+
+#beacon .beaconPanel .excluMag .produitsPromoBeacon .produitBeacon .produitContent .produitNote {
+	transition: font-size 0.2s;
+	font-size: 0.9em;
+
+	margin-bottom: 5%;
+}
+
+#beacon .beaconPanel .excluMag .produitsPromoBeacon .produitBeacon .produitContent .produitNote .produitAvis {
+	display: none;
+	color: #C6C6C6;
+	transition: display 0.2s;
+}
+
+#beacon .beaconPanel .excluMag .produitsPromoBeacon .produitBeacon .produitContent .produitPrix .produitRemise {
+	border: 1px solid #313C3E;
+	border-radius: 20px;
+
+	transition: font-size 0.2s;
+	font-size: 0.9em;
+	color: #FFF;
+	background-color: #313C3E;
+
+	padding: 0% 2%;
+}
+
+#beacon .beaconPanel .excluMag .produitsPromoBeacon .produitBeacon .produitContent .produitPrix .prixGroup {
+	position: absolute;
+	right: 5%;
+}
+
+#beacon .beaconPanel .excluMag .produitsPromoBeacon .produitBeacon .produitContent .produitPrix .produitPrixBarre {
+	text-decoration: line-through;
+	transition: font-size 0.2s;
+	font-size: 0.8em;
+}
+
+#beacon .beaconPanel .excluMag .produitsPromoBeacon .produitBeacon .produitContent .produitPrix .produitPrixTTC {
+	color: #FD7454;
+	transition: font-size 0.2s;
+	font-size: 1.2em;
+	font-weight: 600;
+	padding-left: 5px;
+}
+
+
+	/* Produit panier */
+#beacon .beaconPanel .excluMag .produitsPromoBeacon .produitBeacon .produitContent .produitPanier {
+	background-color: #FFF;
+
+	padding: 8% 22% 4%;
+
+	display: none;
+	transition: display 0.2s;
+}
+
+#beacon .beaconPanel .excluMag .produitsPromoBeacon .produitBeacon .produitContent .produitPanier .panierButton {
+	background-color: #FD7454;
+	border: 1px solid #FD7454;
+	border-radius: 1px;
+
+	color: #F8F8F8;
+	text-align: center;
+	font-size: 1.000em;
+	text-shadow: 1px 1px 0px rgba(45, 45, 45, 0.25);
+
+	box-shadow: 0px 1px 3px rgba(45, 45, 45, 0.25);
+
+	padding: 4% 0% 5%;
+}
+
+
+	/* Desciption + Avis */
+#beacon .beaconPanel .excluMag .produitsPromoBeacon .produitBeacon .descAvis {
+	background-color: #F8F8F8;
+
+	padding: 3.5% 5% 5%;
+	margin-left: -1px;
+
+	border-bottom-left-radius: 3px;
+
+	box-shadow: inset 0px 2.5px 3px -1px rgba(45, 45, 45, 0.25);
+
+	transition: display 0.2s;
+	display: none;
+}
+
+#beacon .beaconPanel .excluMag .produitsPromoBeacon .produitBeacon .descriptionProduct .descriptionProductTitle,
+#beacon .beaconPanel .excluMag .produitsPromoBeacon .produitBeacon .avisProduct .avisProductTitle {
+	position: relative;
+	z-index: 907;
+
+	padding: 3.5% 6% 3% 5%;
+
+	margin: 3% 0% 0%;
+
+	border: 1px solid #ececec;
+	border-top-color: #f1f1f1;
+	border-radius: 6px;
+
+	background-color: #FFF;
+	box-shadow: 0px 1px 0px 0px rgba(155, 155, 155, 0.5);
+
+	font-size: 1.150em;
+}
+
+#beacon .beaconPanel .excluMag .produitsPromoBeacon .produitBeacon .descriptionProduct .descriptionProductTitle .descriptionProductText,
+#beacon .beaconPanel .excluMag .produitsPromoBeacon .produitBeacon .avisProduct .avisProductTitle .avisProductText {
+	font-family: Open Sans;
+	color: #313C3E;
+}
+
+#beacon .beaconPanel .excluMag .produitsPromoBeacon .produitBeacon .descriptionProduct .descriptionProductTitle .fleche-description,
+#beacon .beaconPanel .excluMag .produitsPromoBeacon .produitBeacon .avisProduct .avisProductTitle .fleche-avis {
+	color: #a0a0a0;
+}
+
+#beacon .beaconPanel .excluMag .produitsPromoBeacon .produitBeacon .descriptionProduct .descriptionProductContent,
+#beacon .beaconPanel .excluMag .produitsPromoBeacon .produitBeacon .avisProduct .avisProductContent {
+	position: relative;
+	z-index: 906;
+
+	padding: 5%;
+
+	border: 1px solid #ececec;
+	border-top: none;
+	border-bottom-right-radius: 6px; 
+	border-bottom-left-radius: 6px;
+	
+	background-color: #FFF;
+	box-shadow: 0px 1px 0px 0px rgba(155, 155, 155, 0.5);
+
+	font-family: Open Sans;
+	color: #313C3E;
+}
+
+#beacon .beaconPanel .excluMag .produitsPromoBeacon .produitBeacon .avisProduct .avisProductContent {
+	padding: 0%;
+}
+
+	/* avis */
+#beacon .beaconPanel .excluMag .produitsPromoBeacon .produitBeacon .avisProduct .avisProductContent .listAvis {
+	padding-left: 0px;
+}
+
+#beacon .beaconPanel .excluMag .produitsPromoBeacon .produitBeacon .avisProduct .avisProductContent .listAvis .listAvisProduct {
+	list-style: none;
+	
+	padding: 4% 5% 0%;
+}
+
+#beacon .beaconPanel .excluMag .produitsPromoBeacon .produitBeacon .avisProduct .avisProductContent .listAvis .listAvisProduct.notLast {
+	border-bottom: 1px solid #ececec;
+}
+
+#beacon .beaconPanel .excluMag .produitsPromoBeacon .produitBeacon .avisProduct .avisProductContent .listAvis .listAvisProduct .listAvisProductHead .pseudoAvis {
+	font-weight: 600;
+}
+
+#beacon .beaconPanel .excluMag .produitsPromoBeacon .produitBeacon .avisProduct .avisProductContent .listAvis .listAvisProduct .listAvisProductHead .starsavis {
+	font-size: 1.100em;
+}
+
+#beacon .beaconPanel .excluMag .produitsPromoBeacon .produitBeacon .avisProduct .avisProductContent .listAvis .listAvisProduct .listAvisProductDate {
+	font-size: 0.85em;
+	font-weight: 300;
+}
+
+
+
+
+	/* Promo Tag Beacon */
+
+#beacon .beaconPanel .excluMag .produitsPromoBeacon .produitBeacon .promTagBeacon{
+	position: absolute;
+	top: 0;
+	z-index: 904;
+
+	width: 50%;
+	height: 100%;
+
+	border: 0px solid transparent;
+	border-right: none;
+	border-bottom: none;
+	border-top-left-radius: 3px;
+	overflow: hidden;
+
+	margin-top: -1px;
+	margin-left: -1px;
+
+	text-align: left;
+}
+
+#beacon .beaconPanel .excluMag .produitsPromoBeacon .produitBeacon .promTagBeacon .backgroundPromo {
+	position: absolute;
+	top: 0;
+
+	width: 90px;
+	height: 90px;
+
+	background: url(../img/octave/carre-beacon.png);
+	transform: rotate(-45deg) translateY(-70px) translateX(0px);
+}
+
+#beacon .beaconPanel .excluMag .produitsPromoBeacon .produitBeacon .promTagBeacon .textPromo {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+
+	transition: font-size 0.2s;
+	font-size: 0.6em;
+	text-align: center;
+}
+
+#beacon .beaconPanel .excluMag .produitsPromoBeacon .produitBeacon .promTagBeacon .textPromo .exclu {
+	color: #FD7454;
+
+	margin-bottom: -2px;
+}
+
+#beacon .beaconPanel .excluMag .produitsPromoBeacon .produitBeacon .promTagBeacon .textPromo .mag {
+	color: #FFF;
+
+	margin-bottom: 1px;
+}
+
+
+	/* Produits déjà vus */
+#beacon .beaconPanel .excluMag .dejaVus {
+	text-align: center;
+	padding-bottom: 7%;
+
+}
+
+#beacon .beaconPanel .excluMag .dejaVus .textDejaVus {
+	padding: 2% 5%;
+
+	border: 1px solid #d9d9d9;
+	border-radius: 3px;
+
+	text-align: center;
+	color : #F3F3F3;
+	text-transform: uppercase;
+	font-size: 0.8em;
+	font-family: open sans;
+}
+
+#beacon .beaconPanel .excluMag .dejaVus .textDejaVus.dejaVusOpened {
+	color: #313C3E;
+	background-color: #F3F3F3
+}
+
+	/* Conseils */
+#beacon .beaconPanel .conseils {
+	padding: 5% 5%;
+
+	background-color: #FFF;
+}
+
+#beacon .beaconPanel .conseils .conseilsTitreContainer {
+	text-align: center;
+
+	padding: 0% 33%;
+
+	margin-bottom: 5%;
+}
+
+#beacon .beaconPanel .conseils .conseilsTitreContainer .conseilsTitre {
+	font-size: 1.1em;
+	font-weight: 600;
+	font-family: open sans;
+	color: #313C3E;
+
+	padding: 8% 0%;
+
+	border-bottom: 2px solid #313C3E;
+	border-top: 2px solid #313C3E;
+}
+
+#beacon .beaconPanel .conseils .conseilsContent {
+	border: 1px solid #ececec;
+	border-top: none;
+	border-radius: 4px;
+
+	margin: 0px;
+
+	box-shadow: 0px 1px 3px 0px rgba(155, 155, 155, 0.5);
+
+	font-family: open sans;
+	color: #313C3E;
+}
+
+#beacon .beaconPanel .conseils .conseilsContent .imgContainer {
+	padding: 0px;
+	padding-top: 5%;
+}
+
+#beacon .beaconPanel .conseils .conseilsContent .imgContainer img {
+	width: 100%;
+}
+
+#beacon .beaconPanel .conseils .conseilsContent .conseilContainer {
+	border-left: 1px solid #ececec;
+
+	background-color: #F3F3F3;
+
+	padding-top: 5%;
+	padding-bottom: 5%;
+}
+
+#beacon .beaconPanel .conseils .conseilsContent .conseilContainer .titreConseil {
+	font-size: 0.9em;
+	font-weight: 600;
+
+	margin-bottom: 3px;
+}
+
+#beacon .beaconPanel .conseils .conseilsContent .conseilContainer .apercuConseil {
+	font-size: 0.8em;
+}
+
+
+
+
+	/* OPEN DETAIL MODIFICATION ON BPRODUCTS*/
+#beacon .beaconPanel .excluMag .produitsPromoBeacon .produitBeacon .spanImg.openDetail {
+	border-right: none;
+	border-bottom: 1px solid #ececec;
+}
+
+#beacon .beaconPanel .excluMag .produitsPromoBeacon .produitBeacon .spanImg .openDetail {
+	width: 80%;
+}
+
+#beacon .beaconPanel .excluMag .produitsPromoBeacon .produitBeacon .produitContent .produitName.openDetail {
+	font-size: 1.4em;
+}
+
+#beacon .beaconPanel .excluMag .produitsPromoBeacon .produitBeacon .produitContent .produitNote.openDetail {
+	font-size: 1em;
+}
+
+#beacon .beaconPanel .excluMag .produitsPromoBeacon .produitBeacon .produitContent .produitNote .produitAvis.openDetail {
+	display: initial;
+	font-size: 0.8em
+}
+
+#beacon .beaconPanel .excluMag .produitsPromoBeacon .produitBeacon .produitContent .produitPrix .produitRemise.openDetail {
+	font-size: 1.1em;
+}
+
+#beacon .beaconPanel .excluMag .produitsPromoBeacon .produitBeacon .produitContent .produitPrix .produitPrixBarre.openDetail {
+	font-size: 1em;
+}
+
+#beacon .beaconPanel .excluMag .produitsPromoBeacon .produitBeacon .produitContent .produitPrix .produitPrixTTC.openDetail {
+	font-size: 1.6em;
+}
+
+#beacon .beaconPanel .excluMag .produitsPromoBeacon .produitBeacon .produitContent .produitPanier.openDetail {
+	display: inherit;
+}
+
+#beacon .beaconPanel .excluMag .produitsPromoBeacon .produitBeacon .descAvis.openDetail {
+	display: inherit;
+}
+
+#beacon .beaconPanel .excluMag .produitsPromoBeacon .produitBeacon .promTagBeacon .backgroundPromo.openDetail {
+	width: 180px;
+	height: 180px;
+
+	transform: rotate(-45deg) translateY(-140px) translateX(0px);
+}
+
+#beacon .beaconPanel .excluMag .produitsPromoBeacon .produitBeacon .promTagBeacon .textPromo.openDetail {
+	font-size: 1em;
+}
+
+
+
+
+/* panier.html */
+.changes .headerChanges.panierOverride {
+	width: 100%;
+}
+
+.changes .headerChanges .panierHeader {
+	padding: 0% 20%;
+	width: 100%;
+}
+
+.changes .headerChanges .panierHeader .panierTitre {
+	margin-right: 3px;
+}
+
+	/* panierSteps */
+#panier .panierSteps {
+	background-color: #313C3E;
+	color: white;
+	text-align: center;
+}
+
+#panier .panierSteps .panierStepsNumbers {
+	list-style-type: none;
+	padding: 2% 0%;
+}
+
+#panier .panierSteps .panierStepsNumbers .panierStepsNumber {
+	display: inline;
+
+	font-size: 1.2em;
+	text-shadow: -1px 2px 0px rgba(45, 45, 45, 0.25);
+
+	padding: 0%	2%;
+
+	background-color: #637579;
+	border: 1px solid #637579;
+	border-radius: 30px;
+	margin-right: 5px;
+}
+
+#panier .panierSteps .panierStepsNumbers .panierStepsNumber:last-child {
+	margin-right: 0px;
+}
+
+#panier .panierSteps .panierStepsNumbers .panierStepsNumber.active {
+	background-color: #FD7454;
+	border: 1px solid #FD7454;
+}
+
+
+/* panier_1.tpl.html */
+#panier_1stStep {
+	padding: 2% 8%;
+}
+
+#panier_1stStep .panierProducts {
+	position: relative;
+
+	background-color: #FFF;
+
+	border: 1px solid #ececec;
+	border-top: none;
+	border-radius: 6px;
+
+	box-shadow: 0px 1px 2px 0px rgba(155, 155, 155, 0.7); 
+
+	margin-bottom: 4%;
+}
+
+#panier_1stStep .panierProducts .imgContainer {
+	padding: 0px;
+	padding: 2.5% 1.75%;
+
+	text-align: center;
+
+	min-height: 79px;
+}
+
+#panier_1stStep .panierProducts .imgContainer img {
+	width: 100%;
+}
+
+#panier_1stStep .panierProducts .productContentContainer {
+	font-family: Open Sans;
+	color: #313C3E;
+
+	border-left: 1px solid #ececec;
+
+	padding-top: 3%;
+	padding-right: 0%;
+	padding-bottom: 10px;
+}
+
+#panier_1stStep .panierProducts .productContentContainer .removeFromPanier {
+	position: absolute;
+	top: 2px;
+	right: 5px;
+
+	width: 16px;
+	height: 16px;
+
+	padding-top: 4px; 
+
+	font-size: 0.7em;
+	color: #D2D2D2;
+	text-align: center;
+}
+
+#panier_1stStep .panierProducts .productContentContainer .productDesignation {
+	font-size: 1.1em;
+	font-weight: 600;
+
+	margin-bottom: 10%;
+}
+
+#panier_1stStep .panierProducts .productContentContainer .productQuantity {
+	border: 1px solid #dfdfdf;
+	padding: 0% 9% 0% 2%;
+
+	position: relative;
+}
+
+#panier_1stStep .panierProducts .productContentContainer .productQuantity .quantityMoins,
+#panier_1stStep .panierProducts .productContentContainer .productQuantity .quantityPlus {
+	font-size: 0.7em;
+	font-weight: lighter;
+	color: #FFF;
+
+	background-color: #D2D2D2;
+
+	border: 1px solid #D2D2D2;
+	border-radius: 10px;
+}
+
+#panier_1stStep .panierProducts .productContentContainer .productQuantity .quantityNumber {
+	font-size: 0.9em;
+	font-weight: 600;
+	margin: 0% 2%;
+}
+
+#panier_1stStep .panierProducts .productContentContainer .productQuantity .quantityPlus {
+	padding: 0px 1px;
+
+	position: absolute;
+	top: 5px;
+	bottom: 2px;
+	right: 5%;
+}
+
+#panier_1stStep .panierProducts .productContentContainer .productQuantity .quantityMoins {
+	padding-right: 1px;
+}
+
+#panier_1stStep .panierProducts .productContentContainer .productsPrices {
+	position: absolute;
+	right: 7%;
+}
+
+#panier_1stStep .panierProducts .productContentContainer .productsPrices .productRemise {
+	border: 1px solid #FD7454;
+	border-radius: 20px;
+
+	font-size: 0.8em;
+	color: #FFF;
+	background-color: #FD7454;
+}
+
+#panier_1stStep .panierProducts .productContentContainer .productsPrices .productRemise.beaconBg {
+	border: 1px solid #313C3E;
+	background-color: #313C3E;
+}
+
+#panier_1stStep .panierProducts .productContentContainer .productsPrices .productPrixBarre {
+	text-decoration: line-through;
+	font-size: 0.8em;
+}
+
+#panier_1stStep .panierProducts .productContentContainer .productsPrices .productPrixTTC {
+	color: #FD7454;
+	font-size: 1.2em;
+	font-weight: 600;
+}
+
+
+	/* Promo Tag Panier */
+#panier_1stStep .panierProducts .promTag {
+	position: absolute;
+	top: 0;
+	z-index: 904;
+
+	width: 25%;
+	height: 100%;
+
+	border: 0px solid transparent;
+	border-right: none;
+	border-bottom: none;
+	border-top-left-radius: 5px;
+	overflow: hidden;
+
+	margin-top: -1px;
+	margin-left: -1px;
+}
+
+#panier_1stStep .panierProducts .promTag .backgroundPromo {
+	position: absolute;
+	top: 0;
+
+	width: 90px;
+	height: 90px;
+
+	transform: rotate(-45deg) translateY(-70px) translateX(0px);
+}
+
+#panier_1stStep .panierProducts .promTagBeacon .backgroundPromo {
+	background: url(../img/octave/carre-beacon.png);
+}
+
+#panier_1stStep .panierProducts .promTagClassique .backgroundPromo {
+	background: url(../img/octave/carre-promo.png);
+}
+
+#panier_1stStep .panierProducts .promTag .textPromo {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+
+	color: #FFF;
+	font-size: 0.75em;
+	text-align: center;
+}
+
+#panier_1stStep .panierProducts .promTagBeacon .textPromo {
+	font-size: 0.6em;
+}
+
+#panier_1stStep .panierProducts .promTagBeacon .textPromo .exclu {
+	color: #FD7454;
+
+	margin-bottom: -2px;
+}
+
+#panier_1stStep .panierProducts .promTagBeacon .textPromo .mag {
+	margin-bottom: 1px;
+}
+
+	/* Frais de Port, Total + Boutton Continuer */
+#panier_1stStep .bilanPanier {
+	position: relative;
+
+	background-color: #FFF;
+
+	border: 1px solid #ececec;
+	border-top: none;
+	border-radius: 6px;
+
+	box-shadow: 0px 1px 2px 0px rgba(155, 155, 155, 0.7); 
+
+	margin-bottom: 4%;
+
+	font-family: Open Sans;
+	color: #313C3E;
+
+	padding: 0% 5%;
+}
+
+#panier_1stStep .bilanPanier .fraisDePort,
+#panier_1stStep .bilanPanier .prixTotal {
+	padding: 7% 0%;
+	position: relative;
+}
+
+#panier_1stStep .bilanPanier .prixTotal {
+	padding: 8% 0%;
+}
+
+#panier_1stStep .bilanPanier .fraisDePort {
+	border-bottom: 1px solid #ececec;
+}
+
+#panier_1stStep .bilanPanier .fraisDePort .textFraisDePort,
+#panier_1stStep .bilanPanier .prixTotal .textPrixTotal {
+	position: absolute;
+	left: 0%;
+	top: 25%;
+}
+
+#panier_1stStep .bilanPanier .fraisDePort .prixFraisDePort,
+#panier_1stStep .bilanPanier .prixTotal .prixPrixTotal {
+	position: absolute;
+	right: 0%;
+	top: 25%;
+}
+
+#panier_1stStep .bilanPanier .prixTotal .textPrixTotal {
+	font-weight: 600;
+}
+
+#panier_1stStep .bilanPanier .prixTotal .prixPrixTotal {
+	color: #FD7454;
+	font-size: 1.4em;
+	font-weight: 800;
+}
+
+#panier_1stStep .bouttonContinuerContainer {
+	padding: 0% 30%;
+}
+
+#panier_1stStep .bouttonContinuerContainer .bouttonContinuer {
+	background-color: #FD7454;
+	border: 1px solid #FD7454;
+	border-radius: 2px;
+
+	color: #F8F8F8;
+	text-align: center;
+	font-size: 1.000em;
+	text-shadow: 1px 1px 0px rgba(45, 45, 45, 0.25);
+
+	box-shadow: 0px 1px 3px rgba(45, 45, 45, 0.25);
+
+	padding: 5% 0% 6%;
+}
+
+
+/* account.html */
+
+.changes .headerChanges.headerOverride {
+	width: 100%;
+}
+
+.changes .headerChanges .accountHeader {
+	padding-left: 20%;
+	width: 100%;
+}
+
+.changes .headerChanges .accountHeader .accountTitre {
+	margin-right: 3px;
+}
+
+/* login.html */
+
+#account .login .connexion {
+	padding: 20px;
+}
+
+
+	/* label et input */
+#account .login .connexion .webLogin {
+	margin-bottom: 10px;
+}
+
+#account .login .connexion .labelLoginPassword {
+	color: #313C3E;
+	font-family: Open Sans;
+	font-weight: bold;
+
+	margin-top: 5px;
+}
+
+#account .login .connexion .inputLoginPassword {
+	border: 1px solid #313C3E;
+	border-radius: 3px!important;
+
+	height: 27px;
+
+	padding-left: 4px;
+}
+
+	/* buttons */
+#account .login .connexion .validation,
+#account .logged .menuGestion .deconnexion,
+#account .logged .gestion .modification {
+	text-align: center;
+
+	margin-top: 20px;
+}
+
+#account .login .connexion .validation .validateForm,
+#account .logged .menuGestion .deconnexion .disconection,
+#account .logged .gestion .modification .modificationForm {
+	background-color: #FD7454;
+	border: 1px solid #FD7454;
+	border-radius: 2px;
+
+	color: #F8F8F8;
+	text-align: center;
+	font-size: 1.0em;
+	text-shadow: 1px 1px 0px rgba(45, 45, 45, 0.25);
+
+	box-shadow: 0px 1px 3px rgba(45, 45, 45, 0.25);
+
+	padding: 2% 3.5% 2.3%;
+}
+
+/* logged.html */
+
+#account .logged .menuGestion {
+	padding: 25px 10%;
+}
+
+#account .logged .menuGestion .welcome {
+	color: #313C3E;
+	font-family: Open Sans;
+	font-weight: bold;
+
+	margin-bottom: 25px;
+}
+
+#account .logged .menuGestion .menusAccount {
+	text-align: center;
+    font-size: 1.05em;
+
+	margin-top: 10px;
+
+ 	padding: 7% 0 6%;
+
+    border: 1px solid #ececec;
+    border-top-color: #f1f1f1;
+    border-radius: 6px;
+
+    background-color: #FFF;
+    box-shadow: 0px 1px 0px 0px rgba(155, 155, 155, 0.5);
+    
+}
+
+/* Gestion views */
+
+#account .logged .gestion {
+	padding: 0px 15px;
+}
+
+#account .logged .gestion .contentsGestion {
+	margin-top: 10px;
+	margin-bottom: 15px;
+
+ 	padding: 5% 9% 5% 3%;
+
+    border: 1px solid #ececec;
+    border-top-color: #f1f1f1;
+    border-radius: 6px;
+
+    background-color: #FFF;
+    box-shadow: 0px 1px 0px 0px rgba(155, 155, 155, 0.5);
+}
+
+#account .logged .gestion .contentGestion {
+	margin-bottom: 7px;
+}
+
+#account .logged .gestion .textGestion {
+	font-size: 1.05em;
+	font-family: Open Sans;
+	
+	padding-left: 10px;
+	margin-top: 15px;
+}
+
+#account .logged .gestion .inputGestion {
+	font-family: Open Sans;
+
+	border: 1px solid #313C3E;
+	border-radius: 3px!important;
+}
+
+#account .logged .gestion .inputGestion.dateNaissance {
+	padding: 0;
+}
+
+#account .logged .gestion .inputGestion.checkboxInput {
+	margin-left: 10px;
+}
+
+#account .logged .gestion .labelGestion.checkboxLabel {
+	margin-left: -30px;
+	padding : 0;
+}
+
+#account .logged .gestion .labelGestion {
+	font-family: Open Sans;
+	text-align: right;
+
+}
+
+#account .logged .gestion .confirmMail {
+	margin-bottom: 20px;
+}
+
+#account .logged .gestion .adresseGestionFirst,
+#account .logged .gestion .offreMail {
+	margin-top: 20px;
+}
+
+
+/* Fidelite override */
+#account .logged .gestion .contentsGestion.fideliteOverride {
+	margin-top: 20px;	
+ 	padding: 4% 5% 2.5% 5%;
+}
+
+#account .logged .gestion .labelGestion.fideliteOverride {
+	text-align: left;
+}

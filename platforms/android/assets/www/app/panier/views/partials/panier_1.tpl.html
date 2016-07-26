@@ -1,0 +1,48 @@
+<div id="panier_1stStep">
+
+	<div class="panierProducts row" ng-repeat="product in products">
+		<div class="promTag promTagBeacon" ng-class="{displayNone:product.idPromo==1||product.idPromo==0}">
+			<span class="backgroundPromo"><span class="textPromo"><p class="exclu">Exclusivité</p><p class="mag">MAGASIN</p></span></span>
+		</div>
+		<div class="promTag promTagClassique" ng-class="{displayNone:product.idPromo==2||product.idPromo==0}">
+			<span class="backgroundPromo"><span class="textPromo">PROMO</span></span>
+		</div>
+		<div class="imgContainer col-xs-3">
+			<img ng-src="{{product.imgs[0]}}">
+		</div>
+		<div class="productContentContainer col-xs-9">
+			<span class="removeFromPanier glyphicon glyphicon-remove" ng-click="changeQuantity($index, -product.quantity)"></span>
+			<div class="productDesignation">{{product.ArtDesignation}}</div>
+			<span class="productQuantity">
+				<span class="quantityMoins glyphicon glyphicon-minus" ng-click="changeQuantity($index, -1)"></span>
+				<span class="quantityNumber">{{product.quantity}}</span>
+				<span class="quantityPlus glyphicon glyphicon-plus" ng-click="changeQuantity($index, 1)"></span>
+			</span>
+			<span class="productsPrices">
+				<span class="remiseGroup" ng-class="{displayNone:!product.remise}">
+					<span class="productRemise" ng-class="{beaconBg:product.idPromo==2}">{{product.pourcentage}}%</span>  
+					<span class="productPrixBarre">{{product.prixNonRemiseStr}} €</span>
+				</span>  
+				<span class="productPrixTTC">{{product.prixTTCStr}} €</span>
+			</span>
+		</div>
+
+	</div>
+
+	<div class="bilanPanier row">
+		<div class="fraisDePort">
+			<span class="textFraisDePort">Frais de port</span>
+			<span class="prixFraisDePort">6,60 €</span>
+		</div>
+		<div class="prixTotal">
+			<span class="textPrixTotal">Total</span>
+			<span class="prixPrixTotal">{{prixTotal}} €</span>
+		</div>
+	</div>
+
+	<div class="bouttonContinuerContainer">
+		<div class="bouttonContinuer">CONTINUER</div>
+	</div>
+
+
+</div>

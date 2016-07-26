@@ -1,0 +1,45 @@
+<div id="content" ng-controller="HomeController">
+<!-- content -->
+
+	<!-- carousel news -->
+	<div id="homeCarousel" class="carousel slide" data-ride="carousel">
+		<!-- Indicators -->
+		<ol class="carousel-indicators">
+			<li data-target="#homeCarousel" data-slide-to="{{$index}}" ng-class="{active:$first}" ng-repeat="promo in promo[0]"></li>
+		</ol>
+
+		<!-- Wrapper for slides -->
+		<div class="carousel-inner" role="listbox">
+			<div class="item" ng-class="{active:$first}" ng-repeat="promo in promo[0]" ng-click="goToList(promo.KeyTheme)">
+				<img ng-src="{{promo.src}}">
+			</div>
+		</div>
+	</div>
+	<!-- end Carousel -->
+
+	<!-- Mise en avant -->
+	<div id="miseEnAvant">
+		<div class="miseAvantHome" ng-repeat="promo in promo[1]" ng-click="goToList(promo.KeyTheme)">
+			<img class="imageMiseAvant" ng-src="{{promo.src}}">
+		</div>
+	</div>
+
+	<!-- Meilleures ventes -->
+	<div class="row" id="meilleuresVentesHome"> <!-- Style à rajouter sur le row pour agencer les produits à l'intérieur -->
+		<div id="paddingTitreMeilleuresVentes" class="col-xs-12">
+			<div id="titreMeilleuresVentes">
+				<p id="textTitreMeilleuresVentes">Les top ventes</p>
+			</div>
+		</div>
+
+		<div class="col-xs-6 articleMeilleureVente" ng-class="{pair:$even, impair:$odd}" ng-repeat="articleVente in articlesMeilleureVente" ng-click="goToDetail(articleVente.ID)">
+			<div class="inner">	
+				<img class="imageArticle" ng-src="{{articleVente.img}}">
+				<p class="artDesignationVente">{{articleVente.ArtDesignation}}</p>
+				<p class="prixTTCVente">{{articleVente.prixText}} <span>{{articleVente.PrixTTC}} €</span></p>
+			</div>
+		</div>
+		
+	</div>
+
+</div>

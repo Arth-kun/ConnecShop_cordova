@@ -1,0 +1,27 @@
+
+<div id="panier">
+
+	<div class="changes">
+	    <div class="headerChanges panierOverride">
+	        <span class="glyphicon glyphicon-menu-left returnButton" onclick="history.back()"></span>
+	        <span class="panierHeader"><span class="panierTitre">Mon Panier</span><span class="PanierNbArticles">({{nbArticles}} article<span ng-class="{displayNone:nbArticles<2}">s</span>)</span></span>
+	    </div>
+	</div>
+
+
+	<div class="panierSteps">
+		<ul class="panierStepsNumbers">
+			<li class="panierStepsNumber panier1 active">1</li>
+			<li class="panierStepsNumber panier2">2</li>
+			<li class="panierStepsNumber panier3">3</li>
+			<li class="panierStepsNumber panier4">4</li>
+			<li class="panierStepsNumber panier5">5</li>
+		</ul>
+	</div>
+
+
+
+	<div data-smart-include="app/panier/views/partials/panier_1.tpl.html" class="placeholder-panier-content"></div>
+
+
+</div>

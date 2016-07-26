@@ -1,0 +1,26 @@
+<div class="login">
+
+	<div class="changes">
+		<div class="headerChanges headerOverride">
+			<span class="glyphicon glyphicon-menu-left returnButton" onclick="history.back()"></span>
+			<span class="accountHeader"><span class="accountTitre">Connexion</span></span>
+		</div>
+	</div>
+
+	<div class="connexion">
+
+		<div class="webLogin row">
+			<span class="labelLoginPassword col-xs-5">Identifiant</span>
+			<input class="inputLoginPassword col-xs-6" type="text" ng-model="login">
+		</div>
+		<div class="webPassword row">
+			<span class="labelLoginPassword col-xs-5">Mot de passe</span>
+			<input class="inputLoginPassword col-xs-6" type="password" ng-model="password" ng-keypress="keypress(login, password, $event)">
+		</div>
+		<div class="validation">
+			<button class="validateForm" ng-click="valid(login, password)">Connexion</button>
+		</div>
+		
+	</div>
+
+</div>
